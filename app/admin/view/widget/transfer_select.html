@@ -1,0 +1,21 @@
+<div id="{$tsfName}" class="demo-transfer"></div>
+<script>
+	layui.use(['transfer'], function(){
+		var transfer = layui.transfer
+
+		//定义标题及数据源
+		transfer.render({
+			elem: "#{$tsfName}"
+			,title: ['{$tsfTitle[0]}', '{$tsfTitle[1]}']  //自定义标题
+			,showSearch: {$showSearch}
+			,data: {$tsfData|raw}
+            ,id: '{$tsfName}' //定义唯一索引
+			,width: {$tsfWidth} //定义宽度
+			,height: {$tsfHeight} //定义高度
+			,value: {$tsfValue|raw}
+			,onchange: function(obj, index){
+			}
+		})
+
+	});
+</script>

@@ -1,0 +1,49 @@
+
+<!-- 引入基类模板 -->
+{extend name='public/base' /}
+
+<!-- 主体部分 -->
+{block name='content'}
+
+	<!-- 功能操作区一 -->
+	<form class="layui-form toolbar">
+       <div class="layui-form-item">
+			<div class="layui-inline">
+				<label class="layui-form-label w-auto">菜单名称：</label>
+				<div class="layui-input-inline">
+					<input type="text" name="name" id="keywords" placeholder="请输入菜单名称" autocomplete="off" class="layui-input">
+				</div>
+			</div>
+            <div class="layui-inline">
+                <div class="layui-input-inline" style="width: auto;">
+				<button class="layui-btn" lay-submit="" lay-filter="searchForm" id="search"><i class="layui-icon"></i>查询</button>
+				<a href="javascript:" class="layui-btn btnOption  layui-btn-small btnAdd" id="add" data-param="[]" lay-event="add">
+					<i class="layui-icon layui-icon-add-1"></i> 添加菜单</a>
+
+				<a href="javascript:" class="layui-btn btnOption layui-btn-danger layui-btn-small btnDall" id="dall" data-param="[]" lay-event="dall">
+					<i class="layui-icon layui-icon-delete"></i> 批量删除</a>
+
+				<a href="javascript:" class="layui-btn btnOption layui-btn-normal layui-btn-small btnExpand" id="expand" data-param="[]" lay-event="expand">
+					<i class="layui-icon layui-icon-shrink-right"></i> 全部展开</a>
+
+				<a href="javascript:" class="layui-btn btnOption layui-btn-warm layui-btn-small btnCollapse" id="collapse" data-param="[]" lay-event="collapse">
+					<i class="layui-icon layui-icon-spread-left"></i> 全部折叠</a>
+
+               </div>
+           </div>
+       </div>
+	</form>
+
+	<!-- TREE渲染区 -->
+	<table id="tableList" class="layui-hide" lay-filter="tableList"></table>
+	
+	<!-- 操作功能区二 -->
+	<script type="text/html" id="toolBar">
+		<a class="layui-btn layui-btn-xs btnEdit" lay-event="edit" title="编辑"><i class="layui-icon">&#xe642;</i>编辑</a>
+		<a class="layui-btn layui-btn-danger layui-btn-xs btnDel" lay-event="del" title="删除"><i class="layui-icon">&#xe640;</i>删除</a>
+		{{#  if(d.type <=3 ){ }}
+		<a href="javascript:" class="layui-btn btnOption layui-btn-normal layui-btn-xs btnAddz" id="addz" data-param='[]' lay-event="addz"><i class="layui-icon layui-icon-add-1"></i> 添加</a>
+		{{# } }}
+	</script>
+
+{/block}
